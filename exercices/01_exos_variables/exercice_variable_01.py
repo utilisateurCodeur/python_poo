@@ -7,7 +7,7 @@
 # b = 2
 #
 # La valeur initiale de `a` était 1 et celle de `b` était 2.
-# Après ces affectations, `a` et `b` ont-ils échangé leurs valeurs ?
+# Après ces affectations, `a` et `b` ont-ils échangé leurs valeurs ? Non
 # Justifiez votre réponse.
 
 a = 1
