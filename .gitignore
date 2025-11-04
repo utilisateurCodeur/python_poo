@@ -1,0 +1,47 @@
+# Environnements virtuels
+.venv/
+venv/
+env/
+ENV/
+
+# Fichiers compilés Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Fichiers de log ou temporaires
+*.log
+*.tmp
+*.temp
+
+# Fichiers de configuration locaux
+*.env
+.env
+*.ini
+*.cfg
+
+# Dossiers de build/distribution
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Caches d’outils
+.cache/
+.pytest_cache/
+.mypy_cache/
+.coverage
+coverage.xml
+
+# Notebooks temporaires
+.ipynb_checkpoints/
+
+# IDE et éditeurs
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
