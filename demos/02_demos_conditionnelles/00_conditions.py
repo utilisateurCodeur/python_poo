@@ -56,3 +56,28 @@ if note >= 10:
     resultat = "Réussi"
 else:
     resultat = "Échec"
+
+# 7. L'instruction pass
+# L'instruction 'pass' permet d'écrire une structure conditionnelle sans action immédiate.
+
+nom_utilisateur = ""
+
+if nom_utilisateur:
+    print(f"Bienvenue, {nom_utilisateur}")
+else:
+    pass  # Cette ligne évite une erreur si le bloc else est vide
+
+
+# 8. Vérification de valeurs avec in
+voyelles = "aeiouy"
+lettre = "a"
+print(lettre in voyelles)
+if lettre in voyelles:
+    print(f"{lettre} est une voyelle.")
+
+
+# 9 Verification des types avec isinstance
+valeur = 42
+print(isinstance(valeur,str))
+if isinstance(valeur,int):
+    print("La valeur est un entier")
