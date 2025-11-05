@@ -51,7 +51,7 @@ for element in mixte:
 def calculs(a, b):
     somme = a + b
     produit = a * b
-    return somme, produit  # Retourne un tuple
+    return somme,"Toto", produit  # Retourne un tuple
 
 # Récupération du tuple
 resultat = calculs(4, 5)
@@ -59,7 +59,7 @@ print("Retour de la fonction :", resultat)  # (9, 20)
 print("Type du retour :", type(resultat))   # <class 'tuple'>
 
 # Décomposition du tuple en plusieurs variables
-somme_result, produit_result = calculs(4, 5)
+somme_result, _ ,produit_result = calculs(4, 5)
 print("Somme :", somme_result)
 print("Produit :", produit_result)
 
