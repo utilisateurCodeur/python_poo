@@ -24,7 +24,7 @@ class Personne:
     Classe représentant une personne avec un nom et un âge.
     """
 
-    def __init__(self, nom, age):
+    def __init__(self, nom, age = 5):
         """Le constructeur (__init__) permet d'initialiser les attributs d'un objet."""
         self.nom = nom  # Attribut public
         self.age = age  # Attribut public
@@ -74,4 +74,25 @@ compte = CompteBancaire("Bob", 1000)
 compte.deposer(500)
 compte.retirer(200)
 print(f"Solde final {compte.get_solde()}")
-print(compte.__solde)
+# print(compte.__solde)
+print(compte._CompteBancaire__solde)
+
+# 3. Héritage : une classe enfant hérite des propriétés et méthodes d'une classe parent
+class Etudiant(Personne):
+    """
+    Classe Etudiant qui hérite de Personne.
+    """
+    def __init__(self, nom, age,filiere):
+        super().__init__(nom) # Appelle le constructeur de Personne
+        self.filiere = filiere  # Nouvel attribut
+
+    def se_presenter(self):
+        """Surcharge de la méthode pour inclure la filière."""
+        #return f"{super().se_presenter()} Et j'etudie {self.filiere}."
+        return f"Je suis {self.nom}, j'ai {self.age} ans et j'étudie {self.filiere}."
+
+    
+    
+# Test de l'héritage
+etudiant1 = Etudiant("Charlie", 22, "Informatique")
+print(etudiant1.se_presenter())
