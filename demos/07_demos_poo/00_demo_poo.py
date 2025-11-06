@@ -83,7 +83,7 @@ class Etudiant(Personne):
     Classe Etudiant qui hérite de Personne.
     """
     def __init__(self, nom, age,filiere):
-        super().__init__(nom) # Appelle le constructeur de Personne
+        super().__init__(nom, age) # Appelle le constructeur de Personne
         self.filiere = filiere  # Nouvel attribut
 
     def se_presenter(self):
