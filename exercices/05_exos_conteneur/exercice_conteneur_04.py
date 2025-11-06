@@ -35,3 +35,93 @@
 #
 # 5. retour_inattendu : ajoute un module (qui pourrait être un module "éliminé") à la fin de la liste.
 #    Exemple : si la liste est ['Module B', 'Module C'], elle deviendra ['Module B', 'Module C', 'Module A'].
+
+# Liste des participants au départ de la course
+participants = ["Mario", "Luigi", "Link", "Peach", "Kirby"]
+
+
+def panne_moteur(participants: list) -> list:
+    """
+    Simule une panne moteur : 
+    Le premier participant passe en dernière position.
+    """
+    if participants:  # Vérifie que la liste n'est pas vide
+        premier = participants.pop(0)  # Retire le premier participant
+        participants.append(premier)   # Le place en fin de liste
+    return participants
+
+def passe_en_tete(participants: list) -> list:
+    """
+    Le deuxième participant prend la tête de la course.
+    """
+    if len(participants) > 1:  # Vérifie qu'il y a au moins 2 participants
+        participants[0], participants[1] = participants[1], participants[0]  # Échange des places
+    return participants
+
+def sauve_honneur(participants: list) -> list:
+    """
+    Le dernier participant dépasse l'avant-dernier.
+    """
+    if len(participants) > 1:  # Vérifie qu'il y a au moins 2 participants
+        participants[-1], participants[-2] = participants[-2], participants[-1]  # Échange des 2 derniers
+    return participants
+
+
+def tir_blaster(participants: list) -> str:
+    """
+    Élimine le premier participant de la course.
+    Retourne le nom du participant éliminé.
+    """
+    if participants:
+        return participants.pop(0)  # Retire et retourne le premier participant
+    return "Aucun participant"
+
+def retour_inattendu(participants: list, participant_touche: str) -> list:
+    """
+    Un participant éliminé revient en fin de course.
+    """
+    participants.append(participant_touche)  # Réintègre le participant à la fin
+    return participants
+
+def affichage_course(participants: list):
+    """
+    Affiche la position de chaque participant sous forme de classement.
+    """
+    affichage = ""
+    for position, participant in enumerate(participants, start=1):
+        if position == 1:
+            affichage += f"1er - {participant}, "
+        else:
+            affichage += f"{position}ème - {participant}, "
+
+    print(affichage.rstrip(", "))  # Supprime la virgule finale pour un affichage propre
+
+
+def podium(participants: list):
+    """
+    Affiche le podium avec les 3 premiers participants.
+    """
+    if len(participants) < 3:
+        print("Pas assez de participants pour un podium.")
+    else:
+        print(f"""
+            🏆 1er : {participants[0]}
+🥈 2ème : {participants[1]}     🥉 3ème : {participants[2]}
+        """)
+
+
+# programme principal
+affichage_course(participants)
+
+affichage_course(panne_moteur(participants))
+
+affichage_course(passe_en_tete(participants))
+
+affichage_course(sauve_honneur(participants))
+
+participant_blasterise = tir_blaster(participants)
+affichage_course(participants)
+
+affichage_course(retour_inattendu(participants, participant_blasterise))
+
+podium(participants)
