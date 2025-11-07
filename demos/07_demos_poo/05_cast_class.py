@@ -51,6 +51,7 @@ print(len(ordinateur))
 print(repr(ordinateur))
 print(3 * float(ordinateur))
 
+
 if bool(ordinateur): 
     print("Il me reste du stock")
 
