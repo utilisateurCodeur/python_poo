@@ -96,3 +96,98 @@ class Etudiant(Personne):
 # Test de l'héritage
 etudiant1 = Etudiant("Charlie", 22, "Informatique")
 print(etudiant1.se_presenter())
+
+
+# 4. Polymorphisme : différentes classes peuvent avoir la même méthode mais un comportement différent
+class Chien:
+    def parler(self):
+        return "Wouf Wouf !"
+    
+    def __str__(self):
+        return f"un jolie toutou"
+    
+class Chat:
+    def parler(self):
+        return "Miaou !"
+
+# Fonction utilisant le polymorphisme
+animaux = [Chien(), Chat()]
+
+for animal in animaux:
+    print(animal.parler())
+    print(animal)
+
+# 5. Méthodes spéciales : __str__, __len__, __eq__, etc.
+
+#print(Chien())
+# print(len(["toto",43,True]))
+# print(len(Chien()))
+
+# Chien()
+
+class Livre:
+    """
+    Classe représentant un livre.
+    """
+    def __init__(self, titre, auteur, pages):
+        self.titre = titre
+        self.auteur = auteur
+        self.pages = pages
+    
+    def __str__(self):
+        """Affichage convivial d'un livre"""
+        return f"{self.titre} de {self.auteur}, {self.pages} pages."
+    
+    def __len__(self):
+        """Retourne le nombre de pages."""
+        return self.pages
+    
+    # def __eq__(self, value):
+    #     return True
+
+
+
+
+livre1 = Livre("1984", "George Orwell", 328)
+livre2 = Livre("1984", "George Orwell", 328)
+livre3 = livre1
+livre3.auteur = "toto"
+print(livre1)
+print(str(livre1))
+print(len(livre1))
+print(livre1)  # Appelle __str__
+print(f"Nombre de pages : {len(livre1)}")  # Appelle __len__
+print(livre1 == livre2)
+print(livre1 == livre3)
+print(livre1 == 45)
+print(livre1.auteur)
+print(Chien())
+print(Chat())
+
+# Programme concret : Gestion simple de véhicules
+class Vehicule:
+    """
+    Classe générique pour un véhicule.
+    """
+    
+    def __init__(self, marque, modele, annee):
+        self.marque = marque
+        self.modele = modele
+        self.annee = annee
+    
+    def demarrer(self):
+        return "Le véhicule démarre."
+    
+class Voiture(Vehicule):
+    def demarrer(self):
+        return "La voiture démarre en tournant la clé."
+    
+class Moto(Vehicule):
+    def demarrer(self):
+        return "La moto démarre en appuyant sur le bouton d'allumage."
+    
+voiture1 = Voiture("Toyota", "Corolla", 2020)
+moto1 = Moto("Honda", "CB500F", 2019)
+
+print(voiture1.demarrer())
+print(moto1.demarrer())
